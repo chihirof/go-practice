@@ -22,6 +22,8 @@ func main() {
 	zeroValue()
 
 	conversionType()
+
+	typeInterface()
 }
 
 func zeroValue() {
@@ -40,4 +42,25 @@ func conversionType() {
 	var u uint = uint(f)
 
 	fmt.Println(i, f, u)
+}
+
+func typeInterface() {
+	// 明治的な型を指定せずに変数を宣言すると、変数の型は右辺の変数から型推論される。
+	var i int
+	j := i
+	fmt.Printf("%T\n", i)
+	fmt.Printf("%T\n", j)
+
+	// 右辺が数値である場合、右辺の定数の精度に基づいて、int、float64、complex128 の型になる。
+	k := 42
+	l := 1.5
+	m := 0.867 + 0.5i
+	fmt.Printf("%T\n", k)
+	fmt.Printf("%T\n", l)
+	fmt.Printf("%T\n", m)
+
+	n := "hello"
+	o := 'a'
+	fmt.Printf("%T\n", n)
+	fmt.Printf("%T\n", o)
 }
